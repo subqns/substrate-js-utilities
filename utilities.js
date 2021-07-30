@@ -227,6 +227,13 @@ function SS58ToPublic() {
 		stp.result.innerText = "Error";
 		console.error(e);
 	}
+	try {
+		let address = stp.address.value;
+		stp.prefix.innerText = util_crypto.checkAddressChecksum(util_crypto.base58Decode(address))[3];
+	} catch (e) {
+		stp.prefix.innerText = "Error";
+		console.error(e);
+	}
 }
 
 /* Module ID to Address */
