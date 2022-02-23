@@ -236,6 +236,32 @@ function SS58ToPublic() {
 	}
 }
 
+/* Evm address to SS58 */
+let evm = {
+	"address": document.getElementById("address-evm"),
+	"prefix": document.getElementById("prefix-evm"),
+	"result": document.getElementById("result-evm")
+};
+
+evm.prefix.addEventListener("input", evmToSS58);
+evm.address.addEventListener("input", evmToSS58);
+
+function evmToSS58() {
+	try {
+		let address = evm.address.value;
+		let prefix = evm.prefix.value;
+    let pubkey = util_crypto.blake2AsHex(util.u8aConcat(util.stringToU8a("evm:"), util.hexToU8a(address)), 256);
+		if (prefix) {
+			evm.result.innerText = util_crypto.encodeAddress(pubkey, prefix);
+		} else {
+			evm.result.innerText = util_crypto.encodeAddress(pubkey);
+		}
+	} catch (e) {
+		evm.result.innerText = "Error";
+		console.error(e);
+	}
+}
+
 /* Module ID to Address */
 let modid = {
 	"moduleId": document.getElementById("moduleId-modid"),

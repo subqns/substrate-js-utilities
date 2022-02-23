@@ -140,6 +140,16 @@
 							<div type="text" class="form-control" id="result-stp">Public key
 							</div>
 						</div>
+						<h4>EVM Address to Substrate Address</h4>
+						<div class="input-group">
+							<input type="text" class="form-control col-5" id="address-evm" placeholder="Address">
+							<input type="text" class="form-control col-1" id="prefix-evm" placeholder="Prefix">
+							<div class="input-group-prepend">
+								<span class="input-group-text" id="addon-wrapping">&#8594;</span>
+							</div>
+							<div type="text" class="form-control" id="result-evm">Address
+							</div>
+						</div>
 						<h4>"Module ID" to Address</h4>
 						<div class="input-group">
 							<input type="text" class="form-control" id="moduleId-modid" placeholder="ModuleId">
@@ -175,7 +185,7 @@
 			</span>
 		</div>
 	</footer>
-	<script src="https://unpkg.com/polkadot-js-bundle/polkadot.js"></script>
+	<script src="https://unpkg.com/polkadot-js-bundle@7.5.3/polkadot.js"></script>
 	<script src="utilities.js"></script>
 </body>
 
